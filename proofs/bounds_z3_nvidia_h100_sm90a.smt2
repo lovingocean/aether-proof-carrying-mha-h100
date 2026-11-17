@@ -1,6 +1,6 @@
 ; Z3 SMT-LIBv2 Out-of-Bounds Counterexample Query
 ; Expected result for certified deployment: unsat (no OOB state exists)
-(set-logic QF_LIA)
+(set-logic QF_NIA)
 (declare-const block_m Int)
 (declare-const block_n Int)
 (declare-const head_dim Int)
