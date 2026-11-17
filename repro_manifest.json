@@ -1,0 +1,34 @@
+{
+  "specification": "AetherKernel Open-Benchmark Proof-Carrying Workload Package v1.0",
+  "artifactSha256": "0x07dbf3be18b03ea00ae30b81eb3fbd70",
+  "status": "PROVEN_SAFE",
+  "hardware": {
+    "id": "NVIDIA_H100_SM90A",
+    "name": "NVIDIA H100 SXM5 80GB",
+    "isaTag": "sm_90a PTX 8.5 / CUTLASS TMA",
+    "smemLimitKb": 227,
+    "peakFp16Tflops": 989,
+    "hbmBandwidthTbs": 3.35,
+    "numComputeUnits": 132,
+    "kernelFileExt": ".cu"
+  },
+  "workloadLabel": "Fused Causal Multi-Head Attention + SwiGLU Projection",
+  "config": {
+    "workload": "FUSED_MHA_SWIGLU",
+    "targetArch": "NVIDIA_H100_SM90A",
+    "batchSize": 16,
+    "numHeads": 32,
+    "seqLen": 4096,
+    "headDim": 128,
+    "blockM": 128,
+    "blockN": 64,
+    "numStages": 3,
+    "swizzleBits": 3
+  },
+  "smtZ3Verdict": "UNSAT (0 Out-of-Bounds Reads · 0 Stack Spills)",
+  "lean4TheoremStatus": "Q.E.D. Verified (tile bounds + swizzle bijection proven)",
+  "smemRequiredKb": 130,
+  "smemLimitKb": 227,
+  "speedupFactor": 1.48,
+  "achievedTflops": 909.9
+}
