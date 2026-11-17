@@ -5,6 +5,10 @@ on:
     branches: [ main, master ]
   pull_request:
 
+concurrency:
+  group: verify-proofs-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify-formal-safety:
     name: Z3 SMT Memory Bounds Check (Fused Causal Multi-Head Attention + SwiGLU Projection)
@@ -20,6 +24,7 @@ jobs:
 
       - name: Run Z3 SMT-LIBv2 Bounds Proof
         run: |
-          OUTPUT=$(z3 "proofs/bounds_z3_nvidia_h100_sm90a.smt2")
+          z3 -smt2 "proofs/bounds_z3_nvidia_h100_sm90a.smt2"
+          OUTPUT=$(z3 -smt2 "proofs/bounds_z3_nvidia_h100_sm90a.smt2" | tr -d '[:space:]')
           echo "Z3 Verdict: $OUTPUT"
           test "$OUTPUT" = "unsat"
