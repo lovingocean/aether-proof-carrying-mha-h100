@@ -1,0 +1,25 @@
+name: Formal Safety & Bounds Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  verify-formal-safety:
+    name: Z3 SMT Memory Bounds Check (Fused Causal Multi-Head Attention + SwiGLU Projection)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Z3 Theorem Prover
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y z3
+
+      - name: Run Z3 SMT-LIBv2 Bounds Proof
+        run: |
+          OUTPUT=$(z3 "proofs/bounds_z3_nvidia_h100_sm90a.smt2")
+          echo "Z3 Verdict: $OUTPUT"
+          test "$OUTPUT" = "unsat"
