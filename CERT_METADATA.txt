@@ -1,0 +1,7 @@
+# Formal Certificate SHA-256 Digest
+CERT_SHA256=0x07dbf3be18b03ea00ae30b81eb3fbd70
+STATUS=PROVEN_SAFE
+HARDWARE=NVIDIA H100 SXM5 80GB
+WORKLOAD=FUSED_MHA_SWIGLU
+Z3_VERDICT=UNSAT (0 Out-of-Bounds Reads · 0 Stack Spills)
+LEAN4_STATUS=Q.E.D. Verified (tile bounds + swizzle bijection proven)
