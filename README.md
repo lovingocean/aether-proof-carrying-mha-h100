@@ -1,3 +1,5 @@
+[![Formal Safety & Bounds Verification](https://github.com/lovingocean/aether-proof-carrying-mha-h100/actions/workflows/verify-proofs.yml/badge.svg)](https://github.com/lovingocean/aether-proof-carrying-mha-h100/actions/workflows/verify-proofs.yml) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lovingocean/aether-proof-carrying-mha-h100/blob/main/verify_colab.ipynb)
+
 # Proof-Carrying Synthesis Benchmark Report
 
 **Workload:** Fused Causal Multi-Head Attention + SwiGLU Projection
